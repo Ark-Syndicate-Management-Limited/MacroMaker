@@ -27,7 +27,7 @@ Author = 'George Gransby'
 CompanyName = 'ARK'
 
 # Copyright statement for this module
-Copyright = '(c) XGransby. All rights reserved.'
+Copyright = '(c) George Gransby. All rights reserved.'
 
 # Description of the functionality provided by this module
 # Description = ''
@@ -51,10 +51,10 @@ Copyright = '(c) XGransby. All rights reserved.'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-# RequiredModules = @()
+# RequiredModules = @() 
 
 # Assemblies that must be loaded prior to importing this module
-# RequiredAssemblies = @()
+ RequiredAssemblies = @('System.Diagnostics.Process.dll','netstandard.dll','System.Windows.Forms.dll','System.ComponentModel.Primitives.dll')
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
 # ScriptsToProcess = @()
