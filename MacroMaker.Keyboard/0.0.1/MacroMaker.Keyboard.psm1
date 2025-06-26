@@ -60,13 +60,7 @@ Add-Type -TypeDefinition '
 function Get-KeyPressed {
     $key = [System.Windows.Forms.Keys][MacroMaker.Program]::WaitForKey()
     
-    if($key -eq "Z")
-    {
-        break;
-    }
-    else {
-        Write-Host "Pressed: $key" $
-    }
+    return $key
 }
 
 
