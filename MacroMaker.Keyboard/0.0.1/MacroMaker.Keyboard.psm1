@@ -29,25 +29,25 @@ Add-Type -TypeDefinition '
                 private static extern IntPtr GetModuleHandle(string lpModuleName);
 
                 public static int WaitForKey() {
-                hookId = SetHook(hookProc);
-                Application.Run();
-                UnhookWindowsHookEx(hookId);
-                return keyCode;
+                    hookId = SetHook(hookProc);
+                    Application.Run();
+                    UnhookWindowsHookEx(hookId);
+                    return keyCode;
                 }
 
                 private static IntPtr SetHook(HookProc hookProc) {
-                IntPtr moduleHandle = GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName);
-                return SetWindowsHookEx(WH_KEYBOARD_LL, hookProc, moduleHandle, 0);
+                    IntPtr moduleHandle = GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName);
+                    return SetWindowsHookEx(WH_KEYBOARD_LL, hookProc, moduleHandle, 0);
                 }
 
                 private delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
 
                 private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam) {
-                if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN) {
-                    keyCode = Marshal.ReadInt32(lParam);
-                    Application.Exit();
-                }
-                return CallNextHookEx(hookId, nCode, wParam, lParam);
+                    if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN) {
+                        keyCode = Marshal.ReadInt32(lParam);
+                        Application.Exit();
+                    }
+                    return CallNextHookEx(hookId, nCode, wParam, lParam);
                 }
                 
         } 

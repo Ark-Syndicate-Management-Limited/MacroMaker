@@ -17,16 +17,13 @@ function Start-MacroRecording
         $mousePos_Y = Get-MousePosY
         $mouseLeftState = Get-MouseLeftState
         $mouseRightState = Get-MouseRightState
-        $keyboardKeyPressed = Get-KeyPressed
-        if($keyboardKeyPressed -eq 220 )
-        {
-            break;
-        }
+        
+       
         
         $MacroLogLine = Add-Content -Path $MacroRecordingFile -Value "{$mousePos_X|$mousePos_Y|$mouseLeftState|$mouseRightState|$keyboardKeyPressed}"
-        
+        Write-Host $MacroLogLine
     }
-    while($true)
+    while( $true)
 
     return $MacroRecordingFile
 
