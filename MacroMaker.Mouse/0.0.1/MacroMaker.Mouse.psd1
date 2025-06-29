@@ -9,7 +9,7 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-# RootModule = ''
+RootModule = 'MacroMaker.Mouse'
 
 # Version number of this module.
 ModuleVersion = '0.0.1'
@@ -69,10 +69,10 @@ Copyright = '(c) George Gransby. All rights reserved.'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-MousePos'
+FunctionsToExport = @('Get-MousePosX','Get-MousePosY','Get-MouseLeftState','Get-MouseRightState')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = @()
+CmdletsToExport = @('Get-MousePosX','Get-MousePosY','Get-MouseLeftState','Get-MouseRightState')
 
 # Variables to export from this module
 VariablesToExport = '*'

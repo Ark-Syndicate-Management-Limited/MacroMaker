@@ -60,7 +60,7 @@ Add-Type -TypeDefinition '
 function Get-KeyPressed {
     $key = [System.Windows.Forms.Keys][MacroMaker.Program]::WaitForKey()
     
-    return $key
+    return [byte]$key
 }
 
 
